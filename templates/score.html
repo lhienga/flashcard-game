@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Score{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Card Game - Score</title>
+    <link rel="stylesheet" href="../static/score.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Flash Card Game - Score</h1>
+        <p>Your final score is: {{ score }}</p>
+        <a href="/play-again">Play Again</a>
+    </div>
+</body>
+</html>
+{% endblock %}

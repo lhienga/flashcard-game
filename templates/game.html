@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/game.css">
+    <title>Flash Card Game - Game</title>
+</head>
+<body>
+    <div class="container">
+        <h1>What is <span id="num1">{{ num1 }}</span> {{ operation }} <span id="num2">{{ num2 }}</span>?</h1>
+        <div class="flash-card">
+            
+            <form id="game-form" action="/game" method="POST">
+                <input type="number" name="answer" required>
+                <input type="hidden" name="operation" value="{{ operation }}">
+                <input type="hidden" name="duration" value="{{ duration }}">
+                <input type="hidden" name="score" value="{{ score }}">
+                <input type="hidden" name="start_time" value="{{ start_time }}">
+                <!-- Add hidden input fields for num1 and num2 -->
+                <input type="hidden" name="num1" value="{{ num1 }}">
+                <input type="hidden" name="num2" value="{{ num2 }}">
+                <input type="submit" value="Submit">
+            </form>
+            <p>Score: {{ score }}</p>
+            <div class="timer-container">
+                <p id="timer" class="timer">Time Left: <span id="time-left">{{ duration }}</span> seconds</p>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <a href="/back_to_home" class="back-to-home">Back to Home</a>
+
+    <script>
+        // JavaScript code to update the countdown timer
+        var duration = new Number("{{ duration }}") ;
+        var startTime = new Number("{{ start_time }}") ;
+        var timerElement = document.getElementById("timer");
+
+        function updateTimer() {
+            var currentTime = Number(new Date().getTime())/1000;
+            var elapsedTime = Math.floor((currentTime - startTime)); // Convert milliseconds to seconds
+            var remainingTime = duration - elapsedTime;
+            console.log("remaing", remainingTime, elapsedTime, currentTime , startTime);
+
+            if (remainingTime <= 0) {
+                timerElement.textContent = "Time's Up!";
+            } else {
+                timerElement.textContent = "Time Left: " + remainingTime + " seconds";
+            }
+        }
+
+        updateTimer(); // Initial update
+
+        // Update the timer every second
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
+{% endblock %}

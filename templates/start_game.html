@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Start Game{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Card Game - Game</title>
+    <link rel="stylesheet" href="../static/start_game.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Flash Card Game</h1>
+        <form id="game-form" action="/game" method="POST">
+            <label for="operation">Select Operation:</label>
+            <select name="operation" id="operation">
+                <option value="*">Multiplication</option>
+                <option value="+">Addition</option>
+                <option value="-">Subtraction</option>
+                <option value="/">Division</option>
+            </select>
+            <br>
+            <label for="duration">Game Duration (in seconds):</label>
+            <input type="number" name="duration" id="duration" min="10" max="300" required>
+            <br>
+            <input type="submit" value="Start Game">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("game-form").addEventListener("submit", function(event) {
+            // Get the current timestamp in milliseconds
+            var start_time = Date.now();
+            console.log("start_time", start_time)
+            // Append the start_time as a hidden input field to the form
+            var hiddenInput = document.createElement("input");
+            hiddenInput.setAttribute("type", "hidden");
+            hiddenInput.setAttribute("name", "start_time");
+            hiddenInput.setAttribute("value", start_time);
+            document.getElementById("game-form").appendChild(hiddenInput);
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

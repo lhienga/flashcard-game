@@ -1,0 +1,82 @@
+/* Add this CSS to style the navigation bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #5166b9;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    margin-right: auto;
+}
+
+.nav-item {
+    margin-left: 15px;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #f8f9fa !important;
+}
+
+
+.container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%; /* Increase the max-width to make the box larger */
+    padding: 40px; /* Increase the padding for more space inside the box */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center-align content */
+}
+
+#game-form input[type="number"],
+#game-form input[type="submit"] {
+    width: 100%; /* Make the input fields and submit button fill the width of the form */
+    padding: 10px; /* Add padding to input fields and submit button */
+    margin-bottom: 10px; /* Add some margin between input fields and submit button */
+    border: 1px solid #ccc; /* Add border to input fields */
+    border-radius: 5px; /* Add border radius for rounded corners */
+}
+
+#game-form input[type="submit"] {
+    background-color: #4CAF50; /* Add background color to submit button */
+    color: white; /* Add text color to submit button */
+    cursor: pointer; /* Add pointer cursor to submit button */
+}
+
+#game-form input[type="submit"]:hover {
+    background-color: #45a049; /* Change background color on hover */
+}
+
+/* Adjust margin between content */
+.container > * {
+    margin-bottom: 50px; /* Increase the margin between each content */
+}
+
+
+
+
+.timer {
+    font-size: 20px;
+    color: #333;
+}
+
+#time-left {
+    font-weight: bold;
+}
