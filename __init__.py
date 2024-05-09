@@ -2,8 +2,6 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager, current_user
-from PIL import Image
-import requests
 from sqlalchemy import update
 from sqlalchemy import schema, create_engine
 
