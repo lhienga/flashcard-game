@@ -1,10 +1,7 @@
-.form-group{
-    width: 80%
-  }
-  
-  .signup {
+.signup {
     display: flex;
-    
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
     background: linear-gradient(112.9deg, #9ca6d9, #7280bf);
@@ -29,14 +26,42 @@
     height: 80%;
     display: flex;
     flex-direction: column;
-
- 
+    align-items: center;
+    justify-content: center;
   }
   :root {
     --container-padding: 20px; /* Adjust padding as needed */
   }
   
-
+  
+  /* Add this CSS to enable scrolling for narrow screens */
+  .forms {
+    position: relative;
+    bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    overflow-y: auto; /* Add scrollbar if content exceeds max-height */
+    padding-right: 20px; /* Adjust for scrollbar width */
+  }
+  
+  .signup-head {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    border-radius: var(--br-6xl) var(--br-6xl) 0 0;
+    background-color: var(--color-orchid);
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    
+  }
+  
   .signup-text {
     position: absolute;
     top: 50%;
@@ -47,10 +72,13 @@
     color: white;
   }
   
+  .form-group{
+    width: 80%
+  }
+  
+  
   h1 {
-    position: absolute;
     text-align: center;
-    top: 5%;
   }
   
   form {
@@ -60,73 +88,4 @@
   label {
     display: block;
     margin-bottom: 10px;
-    left:0%;
   }
-  
-  
-  /* Navbar Styles */
-  .navbar {
-    position: absolute;
-    height: 5%;
-    width: 100%;
-    background-color: #5166b9; /* Background color */
-    padding: 10px 20px; /* Adjust padding as needed */
-    box-shadow: 0px 0px 10px var(--color-orchid); /* Optional: add a subtle box shadow */
-  }
-  
-  .navbar-toggler-icon {
-    background-color: #fff; /* Navbar toggle button color */
-  }
-  
-  .navbar-nav {
-    margin-right: auto; /* Push the nav items to the right */
-  }
-  
-  .nav-item {
-    margin-left: 15px; /* Adjust spacing between nav items */
-  }
-  
-  .nav-link {
-    color: #fff !important; /* Text color for nav links */
-    font-weight: bold; /* Optional: make the text bold */
-  }
-  
-  .nav-link:hover {
-    color: #f8f9fa !important; /* Text color on hover */
-  }
-  
-  /* Active link style */
-  .nav-item.active .nav-link {
-    color: #f8f9fa !important; /* Active link text color */
-  }
-  
-  .alert {
-    position: relative;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-  }
-  
-  .alert-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-  }
-  
-  .alert-success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-  }
-  
-  .close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.75rem 1.25rem;
-    color: inherit;
-  }
-  
-  
-  

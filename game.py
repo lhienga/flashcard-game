@@ -39,7 +39,6 @@ def start_game():
 def play_game():
     global start_time, started, combinations, duration
     
-    
     # Handle form submission
     operation = request.form['operation']
     score = int(request.form.get('score', 0))

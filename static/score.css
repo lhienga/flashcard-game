@@ -1,36 +1,3 @@
-/* Add this CSS to style the navigation bar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #5166b9;
-    padding: 10px 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-    color: #fff;
-    font-weight: bold;
-}
-
-.navbar-nav {
-    margin-right: auto;
-}
-
-.nav-item {
-    margin-left: 15px;
-}
-
-.nav-link {
-    color: #fff !important;
-    font-weight: bold;
-}
-
-.nav-link:hover {
-    color: #f8f9fa !important;
-}
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
