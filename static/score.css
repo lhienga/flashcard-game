@@ -69,7 +69,7 @@ p {
     margin-bottom: 30px;
 }
 
-a {
+.play-again {
     display: block;
     width: 100%;
     max-width: 200px;
@@ -83,7 +83,7 @@ a {
     transition: background-color 0.3s;
 }
 
-a:hover {
+.play-again hover {
     background-color: #5166b9;
 }
 

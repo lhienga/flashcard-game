@@ -55,7 +55,7 @@
 }
 
 #game-form input[type="submit"] {
-    background-color: #4CAF50; /* Add background color to submit button */
+    background-color: #5166b9; /* Add background color to submit button */
     color: white; /* Add text color to submit button */
     cursor: pointer; /* Add pointer cursor to submit button */
 }

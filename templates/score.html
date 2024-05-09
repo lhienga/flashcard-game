@@ -14,21 +14,21 @@
     <div class="container">
         <h1>Flash Card Game - Score</h1>
         <p>Your final score is: {{ score }}</p>
-        <a href="/play-again">Play Again</a>
+        <a class = "play-again" href="/play-again">Play Again</a>
         
         <h2>Top 5 Players</h2>
         <table class="top-users-table">
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Correct Rate</th>
+                    <th>Score</th>
                 </tr>
             </thead>
             <tbody>
                 {% for user in top_users %}
                     <tr>
                         <td>{{ user.first_name }}</td>
-                        <td>{{ user.rate }}</td>
+                        <td>{{ user.score }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

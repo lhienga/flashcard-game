@@ -24,7 +24,7 @@
                     };
                 </script>
                 <input type="hidden" name="operation" value="{{ operation }}">
-                <input type="hidden" name="duration" value="{{ duration }}">
+                <input type="hidden" name="duration" value="60">
                 <input type="hidden" name="score" value="{{ score }}">
                 <input type="hidden" name="start_time" value="{{ start_time }}">
                 <!-- Add hidden input fields for num1 and num2 -->
@@ -34,7 +34,7 @@
             </form>
             <p>Score: {{ score }}</p>
             <div class="timer-container">
-                <p id="timer" class="timer">Time Left: <span id="time-left">{{ duration }}</span> seconds</p>
+                <p id="timer" class="timer">Time Left: <span id="time-left">"60"</span> seconds</p>
             </div>
             {% if operation == '/' %}
                 <p>Note: Round your answer to the nearest decimal place.</p>
@@ -48,7 +48,7 @@
 
     <script>
         // JavaScript code to update the countdown timer
-        var duration = new Number("{{ duration }}") ;
+        var duration = 60;
         var startTime = new Number("{{ start_time }}") ;
         var timerElement = document.getElementById("timer");
 

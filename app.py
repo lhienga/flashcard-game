@@ -20,7 +20,7 @@ def home():
     started = False  # Reset the started flag
     combinations = None  # Reset the combinations list
     start_time = None
-    duration = None
+    duration = 60
     return render_template("start_game.html", user=current_user)
 
 @app.route('/game', methods=['GET', 'POST'])
@@ -30,7 +30,6 @@ def game():
     if request.method == 'POST' and started:
         # Handle form submission
         operation = request.form['operation']
-        duration = int(request.form['duration'])
         score = int(request.form.get('score', 0))
 
         if 'answer' in request.form:
@@ -63,21 +62,17 @@ def game():
         # Generate new numbers for the flashcard
         # Check if there are no pairs left
         if not combinations:
-            # Calculate the elapsed time
-            elapsed_time = time.time() - start_time
-            # Calculate the correction rate based on the score divided by the elapsed time
-            duration = elapsed_time
-            # Redirect to the score page with the correction rate
+            
             return redirect(url_for('score', score=score))
         num1, num2 = generate_new_numbers(operation)
 
         # Render the game HTML with updated values
-        return render_template('game.html', num1=num1, num2=num2, operation=operation, score=score, duration=duration, start_time=start_time, user=current_user)
+        return render_template('game.html', num1=num1, num2=num2, operation=operation, score=score, start_time=start_time, user=current_user)
 
     else:
         # Initial game setup
         operation = request.form.get('operation')  # Get operation from query string
-        duration = int(request.form.get('duration'))  # Get duration from query string
+        
         start_time = time.time()
         started = True
 
@@ -87,7 +82,7 @@ def game():
 
         # Render the game HTML with initial values
         num1, num2 = generate_new_numbers(operation)
-        return render_template('game.html', num1=num1, num2=num2,  operation=operation, score=0, duration=duration, start_time=start_time, user=current_user)
+        return render_template('game.html', num1=num1, num2=num2,  operation=operation, score=0, start_time=start_time, user=current_user)
 
 def generate_combinations():
     global combinations
@@ -106,16 +101,16 @@ def remove_pair(num1, num2):
 
 @app.route('/score')
 def score():
-    global duration
+    #global duration
     score = request.args.get('score')
-    # Update the user's rate if the new score is higher
+    # Update the user's score if the new score is higher
     update = User.query.filter_by(id=current_user.id).first()
-    if not update.rate or update.rate < int(score) / duration:
-        update.rate = int(score) / duration
+    if not update.score or update.score < int(score) :
+        update.score = int(score) 
         db.session.commit()
     
-    # Fetch the top 5 users with the highest rate
-    top_users = User.query.order_by(User.rate.desc()).limit(5).all()
+    # Fetch the top 5 users with the highest score
+    top_users = User.query.order_by(User.score.desc()).limit(5).all()
     
     return render_template('score.html', score=score, user=current_user, top_users=top_users)
 
