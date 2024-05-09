@@ -36,23 +36,23 @@ If you are a new user, please sign up first.
 - Your username must be unique and longer than 1 character
 - Your passwords must matched
 
-![alt text](screenshots\image.png)
+![alt text](screenshots/image.png)
 
 ### Login
 If you are a returning user, please login with your registered email and password. 
-![alt text](screenshots\image-2.png)
+![alt text](screenshots/image-2.png)
 
 ### Starting Game
 Please choose the operation you want to play with (addition, subtraction, multiplication or division).
-![alt text](screenshots\image-3.png)
+![alt text](screenshots/image-3.png)
 
 For division, the answer should be round down to 1 decimal place. 
 
 ### Playing Game
 You will have 60 seconds to answer as many calculation as possible. You will get +1 point for each correct answer and -1 point for each incorrect answer. 
-![alt text](screenshots\image-4.png)
+![alt text](screenshots/image-4.png)
 
 ### Score 
 You will see your score and the top 5 highest scores in the leaderboard. 
-![alt text](screenshots\image-5.png)
+![alt text](screenshots/image-5.png)
 
