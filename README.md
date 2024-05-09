@@ -25,7 +25,7 @@ pip install -r requirements.txt
 To run the game, execute the following command in your terminal:
 
 ```python
-python app.py
+python main.py
 ```
 The local app will be running at http://127.0.0.1:5000/
 
