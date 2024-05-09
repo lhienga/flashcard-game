@@ -17,13 +17,14 @@ https://github.com/lhienga/flashcard-game.git
 flashcard-game
 
 3. Install the dependencies:
+```python
 pip install -r requirements.txt
-
-
+```
 ## Running the Application
 
 To run the game, execute the following command in your terminal:
 
+```python
 python app.py
-
+```
 The local app will be running at http://127.0.0.1:5000/
