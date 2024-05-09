@@ -19,8 +19,9 @@ def create_app():
     
     #from app import app
     from auth import auth
+    from game import game
     
-    #app.register_blueprint(app, url_prefix='/')
+    app.register_blueprint(game, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
     from models import User
