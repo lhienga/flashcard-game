@@ -40,7 +40,8 @@ body {
 
 .container {
     position: absolute;
-    top: 30%;
+    top: 50%;
+    
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 60%; /* Increase the max-width to make the box larger */
@@ -48,6 +49,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 h1 {
@@ -77,4 +79,51 @@ a {
 
 a:hover {
     background-color: #5166b9;
+}
+
+/* Add styles for the table */
+.top-users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Add styles for table header */
+.top-users-table th {
+    background-color: #5166b9;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Add styles for table rows */
+.top-users-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Add styles for even rows */
+.top-users-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Add styles for table hover effect */
+.top-users-table tr:hover {
+    background-color: #ddd;
+}
+
+
+
+.container table {
+    margin: 0 auto; /* Center-align tables */
+}
+
+/* Center-align the content in table cells */
+.container table td {
+    text-align: center;
+}
+
+/* Center-align the column names in the table */
+.container table th {
+    text-align: center;
 }

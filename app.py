@@ -2,7 +2,8 @@ from flask import Flask, request, render_template, redirect, url_for, Blueprint
 from flask_login import login_required, current_user
 import random
 import time
-from __init__ import create_app
+from __init__ import create_app, db
+from models import User
 
 app = Flask(__name__)
 app = create_app()
@@ -10,19 +11,21 @@ global started, combinations
 started = False
 
 
+
 @app.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
-    global started, combinations, start_time
+    global started, combinations, start_time, duration
     started = False  # Reset the started flag
     combinations = None  # Reset the combinations list
     start_time = None
+    duration = None
     print("hihi")
     return render_template("start_game.html", user=current_user)
 
 @app.route('/game', methods=['GET', 'POST'])
 def game():
-    global start_time, started, combinations
+    global start_time, started, combinations, duration
     
     if request.method == 'POST' and started:
         # Handle form submission
@@ -95,8 +98,18 @@ def remove_pair(num1, num2):
 
 @app.route('/score')
 def score():
+    global duration
     score = request.args.get('score')
-    return render_template('score.html', score=score, user=current_user)
+    # Update the user's rate if the new score is higher
+    update = User.query.filter_by(id=current_user.id).first()
+    if not update.rate or update.rate < int(score) / duration:
+        update.rate = int(score) / duration
+        db.session.commit()
+    
+    # Fetch the top 5 users with the highest rate
+    top_users = User.query.order_by(User.rate.desc()).limit(5).all()
+    
+    return render_template('score.html', score=score, user=current_user, top_users=top_users)
 
 @app.route('/play-again')
 def play_again():

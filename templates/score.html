@@ -15,7 +15,27 @@
         <h1>Flash Card Game - Score</h1>
         <p>Your final score is: {{ score }}</p>
         <a href="/play-again">Play Again</a>
+        
+        <h2>Top 5 Players</h2>
+        <table class="top-users-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Correct Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in top_users %}
+                    <tr>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.rate }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
+
+
 {% endblock %}
