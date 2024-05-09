@@ -52,6 +52,8 @@ def game():
             if user_answer == expected_answer:
                 score += 1
                 remove_pair(num1, num2)
+            else:
+                score -= 1
 
         # Check if the duration is over
         elapsed_time = time.time() - start_time
@@ -78,21 +80,26 @@ def game():
 
         # Generate combinations list if not already generated
         if 'combinations' not in globals():
-            generate_combinations()
+            generate_combinations(operation)
 
         # Render the game HTML with initial values
         num1, num2 = generate_new_numbers(operation)
         return render_template('game.html', num1=num1, num2=num2,  operation=operation, score=0, start_time=start_time, user=current_user)
 
-def generate_combinations():
+def generate_combinations(operation):
     global combinations
-    combinations = [(i, j) for i in range(13) for j in range(i, 13)]  # Generate pairs with num1 <= num2
+    if operation == '+' or operation == "x":
+        combinations = [(i, j) for i in range(13) for j in range(i, 13)]  # Generate pairs with num1 <= num2
+    elif operation == '-':
+        combinations = [(i, j) for i in range(13) for j in range(13)] 
+    else:
+        combinations = [(i, j) for i in range(13) for j in range(1, 13)] # no division by 0
     random.shuffle(combinations)
 
 def generate_new_numbers(operation):
     global combinations
     if not combinations:
-        generate_combinations()
+        generate_combinations(operation)
     return combinations.pop()
 
 def remove_pair(num1, num2):

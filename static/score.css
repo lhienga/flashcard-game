@@ -41,7 +41,6 @@ body {
 .container {
     position: absolute;
     top: 50%;
-    
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 60%; /* Increase the max-width to make the box larger */
