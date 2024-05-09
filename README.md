@@ -34,7 +34,7 @@ The local app will be running at http://127.0.0.1:5000/
 If you are a new user, please sign up first. 
 - Your email must be unique and in valid format: xxx@xxx
 - Your username must be unique and longer than 1 character
-- Your passwords must matched
+- Your passwords must be matched
 
 ![alt text](screenshots/image.png)
 
