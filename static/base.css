@@ -52,13 +52,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
- 
-  margin: 0;
-}
-.signup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
   margin: 0;
   background: linear-gradient(112.9deg, #9ca6d9, #7280bf);
@@ -75,17 +68,33 @@
 }
 
 .signup-block{
-  position: relative;
-  top: 0;
-  left: 0;
+  position: absolute;
+  
   border-radius: var(--br-6xl);
   background-color: var(--color-gray-100);
   width: 80%;
-  height: 70%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+:root {
+  --container-padding: 20px; /* Adjust padding as needed */
+}
+
+
+/* Add this CSS to enable scrolling for narrow screens */
+.forms {
+  position: relative;
+  bottom: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  overflow-y: auto; /* Add scrollbar if content exceeds max-height */
+  padding-right: 20px; /* Adjust for scrollbar width */
 }
 
 .signup-head {
@@ -100,6 +109,30 @@
   flex-direction: column;
   align-items: left;
   justify-content: center;
+  
+}
+
+.signup-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: large;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
 }
 
 

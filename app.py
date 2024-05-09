@@ -127,9 +127,6 @@ def play_again():
     combinations = None  # Reset the combinations list
     return redirect(url_for('home'))
 
-@app.route('/back_to_home')
-def back_to_home():
-    return play_again()
 
 if __name__ == '__main__':
     app.run(debug=True)
