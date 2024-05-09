@@ -4,6 +4,7 @@ import random
 import time
 from __init__ import create_app, db
 from models import User
+import math
 
 app = Flask(__name__)
 app = create_app()
@@ -34,7 +35,7 @@ def game():
         score = int(request.form.get('score', 0))
 
         if 'answer' in request.form:
-            user_answer = int(request.form['answer'])
+            user_answer = float(request.form['answer'])
 
             num1 = int(request.form['num1'])
             num2 = int(request.form['num2'])
@@ -47,7 +48,7 @@ def game():
             elif operation == '*':
                 expected_answer = num1 * num2
             else:
-                expected_answer = num1 / num2
+                expected_answer = math.floor((num1/num2)*10)/10
 
             # Compare user's answer with the expected answer
             if user_answer == expected_answer:
@@ -61,6 +62,14 @@ def game():
             return redirect(url_for('score', score=score))
 
         # Generate new numbers for the flashcard
+        # Check if there are no pairs left
+        if not combinations:
+            # Calculate the elapsed time
+            elapsed_time = time.time() - start_time
+            # Calculate the correction rate based on the score divided by the elapsed time
+            duration = elapsed_time
+            # Redirect to the score page with the correction rate
+            return redirect(url_for('score', score=score))
         num1, num2 = generate_new_numbers(operation)
 
         # Render the game HTML with updated values

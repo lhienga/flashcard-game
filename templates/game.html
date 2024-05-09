@@ -17,7 +17,7 @@
         <div class="flash-card">
             
             <form id="game-form" action="/game" method="POST">
-                <input type="number" name="answer" required>
+                <input type="number" name="answer" step="any" required>
                 <input type="hidden" name="operation" value="{{ operation }}">
                 <input type="hidden" name="duration" value="{{ duration }}">
                 <input type="hidden" name="score" value="{{ score }}">
@@ -31,6 +31,9 @@
             <div class="timer-container">
                 <p id="timer" class="timer">Time Left: <span id="time-left">{{ duration }}</span> seconds</p>
             </div>
+            {% if operation == '/' %}
+                <p>Note: Round your answer to the nearest decimal place.</p>
+            {% endif %}
         </div>
         
         
