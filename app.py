@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for, Blueprint
+from flask import Flask, request, render_template, redirect, url_for
 from flask_login import login_required, current_user
 import random
 import time
@@ -21,7 +21,6 @@ def home():
     combinations = None  # Reset the combinations list
     start_time = None
     duration = None
-    print("hihi")
     return render_template("start_game.html", user=current_user)
 
 @app.route('/game', methods=['GET', 'POST'])
@@ -45,7 +44,7 @@ def game():
                 expected_answer = num1 + num2
             elif operation == '-':
                 expected_answer = num1 - num2
-            elif operation == '*':
+            elif operation == 'x':
                 expected_answer = num1 * num2
             else:
                 expected_answer = math.floor((num1/num2)*10)/10

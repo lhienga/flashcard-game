@@ -12,7 +12,6 @@ db = SQLAlchemy()
 DB_NAME = "database.db"
 
 def create_app():
-    print("CREATING APPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP")
     app = Flask(__name__)
     # app.config['UPLOAD_FOLDER'] = "static/uploads"
     app.config['SECRET_KEY'] = 'hjshjhdjah kjshkjdhjs'
@@ -42,7 +41,5 @@ def create_app():
     return app
 
 def create_database(app):
-    print("hihi")
     if not path.exists('database/' + DB_NAME):
         db.create_all(app=app)
-        print('Created Database!')

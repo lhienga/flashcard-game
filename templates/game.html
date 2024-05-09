@@ -17,7 +17,12 @@
         <div class="flash-card">
             
             <form id="game-form" action="/game" method="POST">
-                <input type="number" name="answer" step="any" required>
+                <input type="number" name="answer" id = "answer" step="any" required>
+                <script>
+                    window.onload = function() {
+                      document.getElementById("answer").focus();
+                    };
+                </script>
                 <input type="hidden" name="operation" value="{{ operation }}">
                 <input type="hidden" name="duration" value="{{ duration }}">
                 <input type="hidden" name="score" value="{{ score }}">
